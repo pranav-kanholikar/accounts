@@ -19,6 +19,11 @@ class Account < ApplicationRecord
 
     after_save :save_sucessfully
 
+    before_destroy :delete_method
+
+
+    after_destroy :delete_the_record
+
 
 private
 
@@ -62,4 +67,19 @@ private
     end
 
 
+    def delete_method
+        if l_name.blank?
+            puts "last name is not there"
+        end
+    end
+
+
+
+    def delete_the_record
+        if self.present?
+            puts "... happy path"
+          else
+            puts "... sad path"
+          end
+    end
 end

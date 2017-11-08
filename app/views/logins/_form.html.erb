@@ -1,10 +1,10 @@
-<%= form_with(model: account, local: true, validate: true) do |form| %>
-  <% if account.errors.any? %>
+<%= form_with(model: login, local: true) do |form| %>
+  <% if login.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(account.errors.count, "error") %> prohibited this account from being saved:</h2>
+      <h2><%= pluralize(login.errors.count, "error") %> prohibited this login from being saved:</h2>
 
       <ul>
-      <% account.errors.full_messages.each do |message| %>
+      <% login.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -13,17 +13,17 @@
 
   <div class="field">
     <%= form.label :f_name %>
-    <%= form.text_field :f_name, id: :account_f_name %>
+    <%= form.text_field :f_name, id: :login_f_name %>
   </div>
 
   <div class="field">
     <%= form.label :l_name %>
-    <%= form.text_field :l_name, id: :account_l_name %>
+    <%= form.text_field :l_name, id: :login_l_name %>
   </div>
 
   <div class="field">
     <%= form.label :email %>
-    <%= form.email_field :email, id: :account_email %>
+    <%= form.email_field :email, id: :login_email %>
   </div>
 
   <div class="field">
@@ -33,19 +33,13 @@
 
   <div class="field">
     <%= form.label :password %>
-    <%= form.password_field :password, id: :account_password %>
-  </div>
-
-  <div class="field">
-    <%= form.label :age %>
-    <%= form.number_field :age, id: :account_age %>
+    <%= form.password_field :password, id: :login_password %>
   </div>
 
   <div class="field">
     <%= form.label :date %>
-    <%= form.date_select :date, id: :account_date %>
+    <%= form.date_select :date, id: :login_date %>
   </div>
-
 
   <div class="field">
         <%= form.label :Gender %> <br />
@@ -53,9 +47,14 @@
         <%= form.radio_button :gender, 0 %>
         <%= form.label :Gender, 'female' %>
         <%= form.radio_button :gender, 1 %><br />
-      </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :phn_no %>
+    <%= form.number_field :phn_no, id: :login_phn_no %>
+  </div>
 
   <div class="actions">
-    <%= form.submit 'SignUp'%>
+    <%= form.submit %>
   </div>
 <% end %>
