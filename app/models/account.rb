@@ -13,10 +13,20 @@ class Account < ApplicationRecord
     before_validation :create_name, on: :create
 
     
-    before_create :default_date   
+    before_create :default_date
+
+    after_create :just_created
+
+    after_save :save_sucessfully
 
 
 private
+
+
+    before_create do |account|
+        puts "about to create #{account.f_name}"
+    end
+
 
     def age_method
         if age.blank?
@@ -40,6 +50,16 @@ private
         self.date = Date.yesterday
      end
 
+     def just_created
+        puts "just created a account"
+    end
+
+
+    
+
+    def save_sucessfully
+        puts "data is saved sucessfully"
+    end
 
 
 end
