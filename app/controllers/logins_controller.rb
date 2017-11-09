@@ -72,3 +72,6 @@ class LoginsController < ApplicationController
       params.require(:login).permit(:f_name, :l_name, :email, :password, :date, :gender, :phn_no)
     end
 end
+
+
+      

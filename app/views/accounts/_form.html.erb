@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :email %>
-    <%= form.email_field :email, id: :account_email %>
+    <%= form.email_field :email, id: :account_email%>
   </div>
 
   <div class="field">
@@ -36,16 +36,17 @@
     <%= form.password_field :password, id: :account_password %>
   </div>
 
+  
   <div class="field">
+    <%= form.label :date, "DOB"%>
+    <%=form.text_field :date, onchange: "age_calculate(this)"%>
+    <%# <%= form.date_select :date, id: :account_date%>
+  </div>
+
+  <div id="age_div" style="display: none;">
     <%= form.label :age %>
     <%= form.number_field :age, id: :account_age %>
   </div>
-
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.date_select :date, id: :account_date %>
-  </div>
-
 
   <div class="field">
         <%= form.label :Gender %> <br />
@@ -54,6 +55,12 @@
         <%= form.label :Gender, 'female' %>
         <%= form.radio_button :gender, 1 %><br />
       </div>
+
+  <div class="field">
+    <%= form.label :cover %> 
+    <%= form.file_field :cover %>
+  </div>
+
 
   <div class="actions">
     <%= form.submit 'SignUp'%>

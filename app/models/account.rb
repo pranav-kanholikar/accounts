@@ -24,6 +24,8 @@ class Account < ApplicationRecord
 
     after_destroy :delete_the_record
 
+    mount_uploader :cover, CoverUploader
+
 
 private
 
