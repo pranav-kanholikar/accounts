@@ -28,6 +28,9 @@ class LoginsController < ApplicationController
 
     respond_to do |format|
       if @login.save
+        puts "step1......."
+        UserMailer.registration_confirmation(@login).deliver
+
         format.html { redirect_to @login, notice: 'Login was successfully created.' }
         format.json { render :show, status: :created, location: @login }
       else
